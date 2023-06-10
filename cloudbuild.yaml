@@ -30,8 +30,8 @@ steps:
       ]
 
 substitutions:
-  _REGION: [YOUR REGION ]
-  _SERVICE_NAME: [YOUR SERVICE]
+  _REGION: asia-southeast1
+  _SERVICE_NAME: rails-rottenpotatoes
   _INSTANCE_NAME: [CLOUD SQL INSTANCE NAME]
 
 images:
