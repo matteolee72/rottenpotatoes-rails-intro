@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @ratings_to_show_hash = params[:ratings]&.keys || {} #if ratings nil, assign empty hash
+    @ratings_to_show_hash = params[:ratings]&.keys || @all_ratings #if ratings nil, assign empty hash
     @movies = Movie.with_ratings(@ratings_to_show_hash)
 
     case params[:sort]
