@@ -20,6 +20,17 @@ class MoviesController < ApplicationController
       @release_date_header_class = 'hilite bg-warning' # CSS classes for the selected column header
     end
 
+    session[:sort] = params[:sort] if params[:sort].present?
+    session[:ratings] = params[:ratings] if params[:ratings].present?
+    
+    if params[:sort].blank? && params[:ratings].blank?
+      params[:sort] = session[:sort]
+      params[:ratings] = session[:ratings]
+    else
+      session[:sort] = params[:sort]
+      session[:ratings] = params[:ratings]
+    end
+    
     puts params.inspect
   end
 
