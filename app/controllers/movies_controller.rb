@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @ratings_to_show_hash = params[:ratings]&.keys || {}
+    @ratings_to_show_hash = params[:ratings]&.keys || {} #if ratings nil, assign empty hash
     @movies = Movie.with_ratings(@ratings_to_show_hash)
 
     case params[:sort]
@@ -19,6 +19,8 @@ class MoviesController < ApplicationController
       @movies = @movies.order(release_date: :asc)
       @release_date_header_class = 'hilite bg-warning' # CSS classes for the selected column header
     end
+
+    puts params.inspect
   end
 
   def new
